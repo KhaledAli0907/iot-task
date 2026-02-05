@@ -7,6 +7,7 @@ export class ReadingsService {
   constructor(private readonly readingsRepository: ReadingsRepository) {}
 
   create(data: CreateReadingDto) {
+    console.log('Incoming reading:', data);
     return this.readingsRepository.create(data);
   }
 
