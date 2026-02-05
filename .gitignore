@@ -1,0 +1,15 @@
+# Backend
+backend/node_modules/
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# ESP32 / Arduino / PlatformIO
+ESP32/build/
+ESP32/.pio/
+ESP32/.vscode/
+**/*.bin
+**/*.elf
