@@ -14,16 +14,16 @@ export class ReadingsRepository {
     return this.repo.save(data);
   }
 
-  findLatest() {
-    return this.repo.findOne({
-      order: {
-        createdAt: 'DESC',
-      },
+  async findLatest(): Promise<Reading | null> {
+    const results = await this.repo.find({
+      order: { createdAt: 'DESC' },
+      take: 1,
     });
+    return results[0] ?? null;
   }
 
-  findAll() {
-    return this.repo.find();
+  async findAll(): Promise<Reading[]> {
+    return await this.repo.find();
   }
 
   findBySensor(sensor: string) {

@@ -13,3 +13,5 @@ ESP32/.pio/
 ESP32/.vscode/
 **/*.bin
 **/*.elf
+
+node_modules/
