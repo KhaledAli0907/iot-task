@@ -6,6 +6,8 @@
 #include <HTTPClient.h>
 #include <WiFiClientSecure.h>
 
+// Local includes
+#include "helpers.h"
 #include "config.h"
 
 inline void sendReading(float value) {
@@ -16,12 +18,13 @@ inline void sendReading(float value) {
 
   static WiFiClientSecure client;
   client.setInsecure();
-  client.setTimeout(20);
+  client.setTimeout(10000); // 10 seconds
 
   HTTPClient http;
-  http.setTimeout(15);
+  http.setTimeout(10000); // 10 seconds
   if (!http.begin(client, API_URL)) {
     Serial.println("HTTP begin failed");
+    blinkLed(LED_RED, 500);
     return;
   }
   http.addHeader("Content-Type", "application/json");
@@ -34,10 +37,12 @@ inline void sendReading(float value) {
 
   Serial.println("Sending: " + payload);
   int responseCode = http.POST(payload);
-  if (responseCode > 0) {
-    Serial.println("Response: " + String(responseCode));
+  if (responseCode == HTTP_CODE_CREATED) {
+    Serial.println("Success! Response: " + String(responseCode));
+    blinkLed(LED_GREEN, 500);
   } else {
-    Serial.println("Response: " + String(responseCode) + " (" + http.errorToString(responseCode) + ")");
+    Serial.println("Failed. Response: " + String(responseCode) + " (" + http.errorToString(responseCode) + ")");
+    blinkLed(LED_RED, 500);
   }
   http.end();
 }

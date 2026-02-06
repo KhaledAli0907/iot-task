@@ -11,4 +11,11 @@
 // TIMING
 #define SEND_INTERVAL 5000
 
+// LED PINs 
+#define LED_GREEN 26
+#define LED_RED 27
+
+// HTTP STATUS CODES
+#define HTTP_CODE_CREATED 201
+
 #endif
