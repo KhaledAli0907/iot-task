@@ -12,7 +12,7 @@ class ApiService {
   static const int _okStatus = 200;
 
   Future<ReadingModel> fetchLatestReading() async {
-    final uri = Uri.parse('$_baseUrl/readings');
+    final uri = Uri.parse('$_baseUrl/readings/latest');
     final response = await http.get(uri).timeout(_timeout);
 
     if (response.statusCode != _okStatus) {
