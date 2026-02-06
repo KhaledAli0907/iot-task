@@ -6,6 +6,7 @@ import * as ngrok from '@ngrok/ngrok';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
@@ -17,13 +18,13 @@ async function bootstrap() {
   const port = process.env.PORT ?? 3000;
   await app.listen(port);
   // Start ngrok tunnel
-//   (async function () {
-//     const listener = await ngrok.forward({
-//       addr: port,
-//       authtoken_from_env: true,
-//     });
-//     console.log(`NestJS application running on: ${await app.getUrl()}`);
-//     console.log(`Public ngrok URL: ${listener.url()}`);
-//   })();
+  //   (async function () {
+  //     const listener = await ngrok.forward({
+  //       addr: port,
+  //       authtoken_from_env: true,
+  //     });
+  //     console.log(`NestJS application running on: ${await app.getUrl()}`);
+  //     console.log(`Public ngrok URL: ${listener.url()}`);
+  //   })();
 }
 bootstrap();
