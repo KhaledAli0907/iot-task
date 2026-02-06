@@ -1,11 +1,29 @@
+#include "config.h"
+#include "wifi_manager.h"
+#include "sensor.h"
+#include "http_client.h"
+
+unsigned long lastSent = 0;
+
 void setup() {
-    // put your setup code here, to run once:
     Serial.begin(115200);
-    Serial.println("Hello, ESP32!");
+    
+    // Initialize LEDs
+    pinMode(LED_GREEN, OUTPUT);
+    pinMode(LED_RED, OUTPUT);
+    
+    // Turn off LEDs initially
+    digitalWrite(LED_GREEN, LOW);
+    digitalWrite(LED_RED, LOW);
+
+    // Connect to WiFi
+    connectToWifi();
   }
-  
+
   void loop() {
-    // put your main code here, to run repeatedly:
-    delay(10); // this speeds up the simulation
-  }
-  
+    if (millis() - lastSent >= SEND_INTERVAL) {
+      lastSent = millis();
+      float value = readSensor();
+      sendReading(value);
+    }
+}

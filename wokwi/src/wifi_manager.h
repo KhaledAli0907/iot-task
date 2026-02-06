@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <WiFi.h>
+#include "helpers.h"
 #include "config.h"
 
 inline void connectToWifi() {
@@ -14,5 +15,9 @@ inline void connectToWifi() {
         Serial.print(".");
     }
     Serial.println("\nConnected to WiFi");
+    // Flash green LED twice on success
+    blinkLed(LED_GREEN, 100);
+    delay(200);
+    blinkLed(LED_GREEN, 100);
 }
 #endif
