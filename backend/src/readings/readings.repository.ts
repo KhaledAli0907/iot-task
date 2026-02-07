@@ -23,7 +23,22 @@ export class ReadingsRepository {
   }
 
   async findAll(): Promise<Reading[]> {
-    return await this.repo.find();
+    return await this.repo.find({
+      order: { createdAt: 'DESC' },
+    });
+  }
+
+  async findPaginated(
+    page: number,
+    limit: number,
+  ): Promise<{ items: Reading[]; total: number }> {
+    const skip = (page - 1) * limit;
+    const [items, total] = await this.repo.findAndCount({
+      order: { createdAt: 'DESC' },
+      skip,
+      take: limit,
+    });
+    return { items, total };
   }
 
   findBySensor(sensor: string) {
