@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { ReadingsService } from './readings.service';
 import { CreateReadingDto } from './dto/create-reading.entity';
+import { PaginationQueryDto } from './dto/pagination.dto';
 
 @Controller('readings')
 export class ReadingsController {
@@ -17,8 +18,8 @@ export class ReadingsController {
   }
 
   @Get()
-  getAll() {
-    return this.readingsService.getAll();
+  getAll(@Query() query: PaginationQueryDto) {
+    return this.readingsService.getAll(query);
   }
 
   @Get('sensor/:sensor')

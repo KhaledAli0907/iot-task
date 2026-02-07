@@ -1,0 +1,458 @@
+{
+  "info": {
+    "name": "Task",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Reading",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{url}}/readings",
+          "protocol": "",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "readings"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"sensor\": \"test\",\n  \"value\": 22.7\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "name": "Validation Err",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/readings",
+              "protocol": "",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "readings"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sensor\": 1,\n  \"value\": 22.7\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "78",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"4e-+WDR+XGTY1hF1W5jvvSRNKYFQvs\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Thu, 05 Feb 2026 15:54:12 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"message\": [\n    \"sensor must be a string\"\n  ],\n  \"error\": \"Bad Request\",\n  \"statusCode\": 400\n}",
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "name": "Success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/readings",
+              "protocol": "",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "readings"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sensor\": \"test\",\n  \"value\": 22.7\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "76",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"4c-JRhdw0MkFyDPhcvQSy9cLDZz2G0\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Thu, 05 Feb 2026 15:54:50 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"sensor\": \"test\",\n  \"value\": 22.7,\n  \"id\": 4,\n  \"createdAt\": \"2026-02-05T15:54:49.000Z\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "Latest Reading",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{url}}/readings/latest",
+          "protocol": "",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "readings",
+            "latest"
+          ],
+          "query": [],
+          "variable": []
+        }
+      },
+      "response": [
+        {
+          "name": "Latest Reading",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/readings/latest",
+              "protocol": "",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "readings",
+                "latest"
+              ],
+              "query": [],
+              "variable": []
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "access-control-allow-origin",
+              "value": "*",
+              "name": "access-control-allow-origin",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "82",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Fri, 06 Feb 2026 18:49:43 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"52-s2W4jkV2MhOu15TKuCwhTaQqB0E\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "server",
+              "value": "railway-edge",
+              "name": "server",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "x-railway-edge",
+              "value": "railway/europe-west4-drams3a",
+              "name": "x-railway-edge",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "x-railway-request-id",
+              "value": "KIZeaF9XStuh6-QarJsmnA",
+              "name": "x-railway-request-id",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": 30,\n  \"sensor\": \"temperature\",\n  \"value\": 28,\n  \"createdAt\": \"2026-02-06T18:46:12.000Z\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "List Reading",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "auth": {
+          "type": "noauth"
+        },
+        "description": "",
+        "url": {
+          "raw": "{{url}}/readings?limit=2&page=2",
+          "protocol": "",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "readings?limit=2&page=2"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "2"
+            },
+            {
+              "key": "page",
+              "value": "2"
+            }
+          ],
+          "variable": []
+        }
+      },
+      "response": [
+        {
+          "name": "All Readings",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/readings?limit=2&page=2",
+              "protocol": "",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "readings?limit=2&page=2"
+              ],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "2"
+                },
+                {
+                  "key": "page",
+                  "value": "2"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "x-powered-by",
+              "value": "Express",
+              "name": "x-powered-by",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "access-control-allow-origin",
+              "value": "*",
+              "name": "access-control-allow-origin",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-type",
+              "value": "application/json; charset=utf-8",
+              "name": "content-type",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "content-length",
+              "value": "209",
+              "name": "content-length",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "etag",
+              "value": "W/\"d1-i7jmBjb8llLai53bKF8RzQEzgpM\"",
+              "name": "etag",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "date",
+              "value": "Sat, 07 Feb 2026 08:53:00 GMT",
+              "name": "date",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "connection",
+              "value": "keep-alive",
+              "name": "connection",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "keep-alive",
+              "value": "timeout=5",
+              "name": "keep-alive",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"items\": [\n    {\n      \"id\": 2,\n      \"sensor\": \"temp\",\n      \"value\": 22.7,\n      \"createdAt\": \"2026-02-05T15:50:22.000Z\"\n    },\n    {\n      \"id\": 1,\n      \"sensor\": \"temp\",\n      \"value\": 22.6,\n      \"createdAt\": \"2026-02-05T15:50:12.000Z\"\n    }\n  ],\n  \"total\": 4,\n  \"page\": 2,\n  \"limit\": 2,\n  \"totalPages\": 2\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "url",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
