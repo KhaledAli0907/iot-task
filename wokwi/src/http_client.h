@@ -27,9 +27,6 @@ inline void sendReading(float value) {
     blinkLed(LED_RED, 500);
     return;
   }
-  // Flash green LED twice
-  blinkLed(LED_GREEN, 100);
-  blinkLed(LED_GREEN, 100);
 
   // Add headers
   http.addHeader("Content-Type", "application/json");
