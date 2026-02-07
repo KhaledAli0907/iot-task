@@ -8,9 +8,10 @@ import '../models/reading_model.dart';
 class ApiService {
   static const Duration _timeout = Duration(seconds: 10);
   static const int _okStatus = 200;
+  // Get the base URL at compile time for appwrite hosting compatibility
   static const String _baseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://localhost:3000',
+    defaultValue: 'https://iot-task-production.up.railway.app',
   );
 
   Future<ReadingModel> fetchLatestReading() async {
