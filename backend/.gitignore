@@ -7,6 +7,9 @@
 *.sqlite
 *.sqlite3
 
+# Node localStorage
+.node-localstorage
+
 # Logs
 logs
 *.log
