@@ -1,15 +1,17 @@
 import 'dart:convert';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+// import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/reading_model.dart';
 
-String get _baseUrl => dotenv.env['API_BASE_URL'] ?? 'http://localhost:3000';
-
 class ApiService {
   static const Duration _timeout = Duration(seconds: 10);
   static const int _okStatus = 200;
+  static const String _baseUrl = String.fromEnvironment(
+    'API_BASE_URL',
+    defaultValue: 'http://localhost:3000',
+  );
 
   Future<ReadingModel> fetchLatestReading() async {
     final uri = Uri.parse('$_baseUrl/readings/latest');
