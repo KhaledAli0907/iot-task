@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   String? _error;
   bool _isLoading = false;
   Timer? _pollingTimer;
-  final Duration _pollingInterval = const Duration(seconds: 10);
+  final Duration _pollingInterval = const Duration(seconds: 5);
 
   @override
   void initState() {
