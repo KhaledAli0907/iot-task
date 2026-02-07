@@ -7,7 +7,7 @@ An end-to-end IoT demo: a simulated ESP32 device sends sensor readings to a Nest
 | Component            | Link |
 |----------------------|------|
 | **Wokwi simulation** | [https://wokwi.com/projects/455214744835499009](https://wokwi.com/projects/455214744835499009) |
-| **Backend API**      | [https://iot-task-production.up.railway.app](https://iot-task-production.up.railway.app) |
+| **Backend API**      | [https://iot-task-production.up.railway.app/readings](https://iot-task-production.up.railway.app/readings) |
 | **Flutter web app**  | [https://flutter.appwrite.network/](https://flutter.appwrite.network/) |
 | **Postman collection** | [backend/postman_collection.json](backend/postman_collection.json) — import into [Postman](https://www.postman.com/) or [Bruno](https://www.usebruno.com/) to call the API |
 
